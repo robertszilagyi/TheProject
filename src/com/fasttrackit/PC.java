@@ -1,6 +1,6 @@
 package com.fasttrackit;
 
-public class P1
+public class PC extends Produs
 {
 
 }
