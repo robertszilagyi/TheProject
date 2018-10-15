@@ -1,8 +1,17 @@
 package com.fasttrackit;
 
-public class Produs
+import java.util.ArrayList;
+import java.util.List;
+
+public class ComponentePC
 {
     private String nume;
+    private int pret;
+
+    private List<ComponentePC> componentePc = new ArrayList<>();
+    private String NumeProdus;
+
+
 
     public String getNume()
     {
@@ -13,8 +22,6 @@ public class Produs
     {
         this.nume = nume;
     }
-
-    private int pret;
 
     public int getPret()
     {

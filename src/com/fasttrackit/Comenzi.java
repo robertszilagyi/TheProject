@@ -1,6 +1,6 @@
 package com.fasttrackit;
 
-public class Comenzi extends Produs
+public class Comenzi extends ComponentePC
 {
     private int dataComenzii;
 
