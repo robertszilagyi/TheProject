@@ -2,16 +2,32 @@ package com.fasttrackit;
 
 
 
-public class Main
-{
+
+public class Main {
 
     public static void main(String[] args)
     {
+        Store store = new Store("PcStore");
 
-            Orders customer1 = new Orders("Andrew", "Alea Florilor 45", "pcCase, cooler");
-        System.out.println("Customer name: " + customer1.getCustomerName()+  " Adress: " +customer1.getAdress() + "Items bought: "  + customer1.getItemsBought()+ "." + "Total price:" + customer1.getTotalPrice());
+        ProductCategory peripherals = new ProductCategory("Peripherals");
 
-        Orders customer2 = new Orders("Dan", "30 Decembrie 11", "memory, video card");
-        System.out.println("Customer name: " + customer2.getCustomerName()+  " Adress: " +customer2.getAdress() + "Items bought: "  + customer2.getItemsBought()+ "." + "Total price: " + customer2.getTotalPrice());
-        }
+        Product keyboard = new Product("Apple Magic Keyboard", 50,  peripherals, 10 );
+
+        Product mouse = new Product("Mouse Microsoft Mobile 1850" , 30, peripherals, 10);
+
+        Product speaker = new Product("JBL GO Speaker", 60, peripherals, 11);
+
+
+        store.getProductCategory().add(peripherals);
+
+        ProductBasket productBasket = new ProductBasket("John");
+
+        productBasket.addProduct(keyboard);
+        productBasket.addProduct(mouse);
+        productBasket.addProduct(speaker);
+
+        System.out.println("The product basket contains : " + productBasket.getProducts().size()+ " products "  );
+        System.out.println("The total price is : " + productBasket.totalPrice()+ " $");
+
     }
+}
