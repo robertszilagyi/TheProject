@@ -1,4 +1,4 @@
-package com.fasttrackit;
+package com.fasttrackit.domain;
 
 import java.util.HashSet;
 import java.util.Set;
