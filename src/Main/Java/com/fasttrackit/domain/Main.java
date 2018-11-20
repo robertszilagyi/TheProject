@@ -19,9 +19,11 @@ public class Main
         Product speaker = new Product("JBL GO Speaker", 60, peripherals, 11);
 
 
+
         store.getProductCategory().add(peripherals);
 
         ProductBasket productBasket = new ProductBasket("John");
+
 
         productBasket.addProduct(keyboard);
         productBasket.addProduct(mouse);

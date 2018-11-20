@@ -1,4 +1,6 @@
 package com.fasttrackit.exception;
 
-public class NotFoundException {
+public class NotFoundException
+{
+
 }
