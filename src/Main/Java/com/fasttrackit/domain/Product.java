@@ -1,9 +1,9 @@
-package com.fasttrackit;
+package com.fasttrackit.domain;
 
 
+import java.io.Serializable;
 
-
-public class Product
+public class Product implements Serializable
 {
     private String productName;
     private double price;

@@ -1,4 +1,4 @@
-package com.fasttrackit;
+package com.fasttrackit.domain;
 
 
 import java.io.Serializable;
