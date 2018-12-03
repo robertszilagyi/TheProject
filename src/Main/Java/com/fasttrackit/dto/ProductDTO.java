@@ -1,4 +1,4 @@
-package com.fasttrackit.domain;
+package com.fasttrackit.dto;
 
 
 import javax.persistence.Entity;
@@ -6,8 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import java.io.Serializable;
+
 @Entity
-public class Product implements Serializable {
+public class ProductDTO implements Serializable {
     @Id
     @GeneratedValue(generator = "store_generator")
     @SequenceGenerator(
@@ -18,9 +19,9 @@ public class Product implements Serializable {
     private long id;
 
     private String productName;
-    private String price;
+    private double price;
     private String manufacturer;
-    private String stock;
+    private int stock;
 
     public long getId() {
         return id;
@@ -38,11 +39,11 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-    public String  getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -54,25 +55,15 @@ public class Product implements Serializable {
         this.manufacturer = manufacturer;
     }
 
-    public String getStock() {
+    public int getStock() {
         return stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("ProductDTO{");
-        sb.append("id=").append(id);
-        sb.append(", productName='").append(productName).append('\'');
-        sb.append(", price=").append(price);
-        sb.append(", manufacturer='").append(manufacturer).append('\'');
-        sb.append(", stock=").append(stock);
-        sb.append('}');
-        return sb.toString();
-    }
+
 }
 
 

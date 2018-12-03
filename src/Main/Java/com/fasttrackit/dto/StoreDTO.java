@@ -1,14 +1,15 @@
-package com.fasttrackit.domain;
+package com.fasttrackit.dto;
+
+import com.fasttrackit.domain.Product;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+
 @Entity
 @Table(name = "stores")
-public class Store implements Serializable {
+public class StoreDTO implements Serializable {
 
 
     @Id
@@ -23,7 +24,7 @@ public class Store implements Serializable {
     private String name;
     private String adress;
 
-    private List<Product> products = new ArrayList<>();
+    private List<ProductDTO> firstElements= new ArrayList<>();
 
 
 
@@ -51,12 +52,9 @@ public class Store implements Serializable {
         this.adress = adress;
     }
 
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public List<ProductDTO> getFirstElements()
+    {
+        return firstElements;
     }
 
 
@@ -66,7 +64,7 @@ public class Store implements Serializable {
         sb.append("id=").append(id);
         sb.append(", name='").append(name).append('\'');
         sb.append(", adress='").append(adress).append('\'');
-        sb.append(", products=").append(products);
+        sb.append(", products=").append(firstElements);
         sb.append('}');
         return sb.toString();
     }
