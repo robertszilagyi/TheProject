@@ -8,19 +8,23 @@ public class Cart
 
     List<OrderedProduct> productsOrdered;
 
-    public CustomerInformation getCustomerInformation() {
+    public CustomerInformation getCustomerInformation()
+    {
         return customerInformation;
     }
 
-    public void setCustomerInformation(CustomerInformation customerInformation) {
+    public void setCustomerInformation(CustomerInformation customerInformation)
+    {
         this.customerInformation = customerInformation;
     }
 
-    public List<OrderedProduct> getProductsOrdered() {
+    public List<OrderedProduct> getProductsOrdered()
+    {
         return productsOrdered;
     }
 
-    public void setProductsOrdered(List<OrderedProduct> productsOrdered) {
+    public void setProductsOrdered(List<OrderedProduct> productsOrdered)
+    {
         this.productsOrdered = productsOrdered;
     }
 }

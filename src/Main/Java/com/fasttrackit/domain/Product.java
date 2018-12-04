@@ -38,7 +38,7 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-    public String  getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -58,7 +58,8 @@ public class Product implements Serializable {
         return stock;
     }
 
-    public void setStock(String stock) {
+    public void setStock(String stock)
+    {
         this.stock = stock;
     }
 

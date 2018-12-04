@@ -21,29 +21,35 @@ public class StoreService
     private StoreRepository storeRepository;
 
     @Transactional
-    public void saveStore(Store store) {
-        if (store.getName() == null) {
+    public void saveStore(Store store)
+    {
+        if (store.getName() == null)
+        {
             throw new IllegalArgumentException("Name can not be null");
         }
-        if (store.getAdress() == null) {
+        if (store.getAdress() == null)
+        {
             throw new IllegalArgumentException("Adress can not be null");
 
         }
         try {
             storeRepository.save(store);
-        } catch (Exception e) {
+        } catch (Exception e)
+        {
             System.out.println("Error when saving store" + e);
         }
     }
 
     @Transactional
-    public List<StoreDTO> getStores() {
+    public List<StoreDTO> getStores()
+    {
         Iterator<Store> iterator =
                 storeRepository.findAll().iterator();
 
         List<StoreDTO> list = new ArrayList<>();
 
-        while (iterator.hasNext()) {
+        while (iterator.hasNext())
+        {
             Store store = iterator.next();
 
             StoreDTO storeDTO = new StoreDTO();
@@ -52,7 +58,8 @@ public class StoreService
 
             List<Product> products = store.getProducts();
             int numberOfPRoducts = 0;
-            while (numberOfPRoducts < 5 && products.size() >= 5) {
+            while (numberOfPRoducts < 5 && products.size() >= 5)
+            {
                 Product product = products.get(numberOfPRoducts);
                 ProductDTO productDTO = new ProductDTO();
 
