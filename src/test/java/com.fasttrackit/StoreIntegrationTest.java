@@ -5,22 +5,31 @@ import com.fasttrackit.domain.Product;
 import com.fasttrackit.domain.Store;
 import com.fasttrackit.dto.StoreDTO;
 import com.fasttrackit.service.StoreService;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.ConfigFileApplicationContextInitializer;
+import org.springframework.boot.test.SpringApplicationContextLoader;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(classes = StoreApplication.class, loader = SpringApplicationContextLoader.class, initializers = ConfigFileApplicationContextInitializer.class)
 public class StoreIntegrationTest
 {
 
-
+    @Autowired
 private StoreService storeService;
 
 
-
+    @Test
 public void testService()
 {
     Store store = new Store();
-    store.setName("");
-    store.setAdress("");
+    store.setName("PSStore");
+    store.setAdress("Strada Plevnei, nr.15 ");
 
 
     Product product1 = new Product();

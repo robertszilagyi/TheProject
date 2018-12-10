@@ -39,7 +39,7 @@ public class Product implements Serializable {
     }
 
     public double getPrice() {
-        return price;
+        return Double.parseDouble(price);
     }
 
     public void setPrice(String price) {

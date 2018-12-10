@@ -18,8 +18,8 @@ public class Store implements Serializable {
             sequenceName = "store_sequence",
             initialValue = 1000
     )
-    private Long id;
 
+    private Long id;
     private String name;
     private String adress;
 
