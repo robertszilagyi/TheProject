@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.ConfigFileApplicationContextInitializer;
 import org.springframework.boot.test.SpringApplicationContextLoader;
+
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -28,7 +29,7 @@ private StoreService storeService;
     public void testService()
 {
     Store store = new Store();
-    store.setName("PSStore");
+    store.setName("PCStore");
     store.setAdress("Strada Plevnei, nr.15 ");
 
 

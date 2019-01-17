@@ -1,8 +1,7 @@
 package com.fasttrackit.dto;
 
-import com.fasttrackit.domain.Product;
-import com.fasttrackit.domain.Store;
 
+import com.fasttrackit.domain.Store;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.ArrayList;

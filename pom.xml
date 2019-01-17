@@ -223,7 +223,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring.boot.version}</version>
+                <version>2.1.2.RELEASE</version>
                 <configuration>
                     <mainClass>org.fasttrackit.MyApplication</mainClass>
                 </configuration>
