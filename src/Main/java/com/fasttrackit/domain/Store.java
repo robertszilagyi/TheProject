@@ -10,23 +10,24 @@ import java.util.List;
 public class Store implements Serializable {
 
 
-    @Id
+@Id
     @GeneratedValue(generator = "store_generator")
     @SequenceGenerator(
             name = "store_generator",
             sequenceName = "store_sequence",
-            initialValue = 1000
+            initialValue = 1
     )
 
-    private Long id;
+    private long id;
     private String name;
     private String adress;
     private String description;
-    private List<Product> products = new ArrayList<>();
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @OneToMany( cascade = CascadeType.ALL)
     @JoinColumn(name = "store_Id")
 
+    private List<Product> products = new ArrayList<>();
     public long getId()
     {
         return  id;

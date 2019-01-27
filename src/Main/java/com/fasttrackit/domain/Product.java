@@ -7,8 +7,9 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import java.io.Serializable;
 @Entity
+
 public class Product implements Serializable {
-    @Id
+@Id
     @GeneratedValue(generator = "store_generator")
     @SequenceGenerator(
             name = "store_generator",

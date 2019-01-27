@@ -1,14 +1,10 @@
 package com.fasttrackit.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 
 
 public class OrderedProduct
 {
-@Id
+
 
 
     private Product product;

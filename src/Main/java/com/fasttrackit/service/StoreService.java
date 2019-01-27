@@ -32,7 +32,7 @@ public class StoreService
             throw new IllegalArgumentException("Adress can not be null");
 
         }
-        Store convert = convert(store);
+
         try {
             storeRepository.save(store);
         } catch (Exception e)

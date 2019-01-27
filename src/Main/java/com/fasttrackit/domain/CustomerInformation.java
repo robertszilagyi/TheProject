@@ -2,24 +2,12 @@ package com.fasttrackit.domain;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name="userStore")
+
+
 public class CustomerInformation
 
 {
-    @Id
-    @GeneratedValue
-    private long id;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    @Column(unique = true)
     private String username;
 
     private String firstName;
