@@ -25,9 +25,10 @@ public class Store implements Serializable {
 
 
     @OneToMany( cascade = CascadeType.ALL)
-    @JoinColumn(name = "store_Id")
+
 
     private List<Product> products = new ArrayList<>();
+
     public long getId()
     {
         return  id;

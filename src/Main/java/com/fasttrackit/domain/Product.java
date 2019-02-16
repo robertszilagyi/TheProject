@@ -19,9 +19,9 @@ public class Product implements Serializable {
     private long id;
 
     private String productName;
-    private String price;
+    private double price;
     private String manufacturer;
-    private String stock;
+    private int stock;
 
     public long getId() {
         return id;
@@ -39,13 +39,11 @@ public class Product implements Serializable {
         this.productName = productName;
     }
 
-    public String getPrice()
-    {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price)
-    {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -59,12 +57,12 @@ public class Product implements Serializable {
         this.manufacturer = manufacturer;
     }
 
-    public String getStock()
+    public int getStock()
     {
         return stock;
     }
 
-    public void setStock(String stock)
+    public void setStock(int stock)
     {
         this.stock = stock;
     }

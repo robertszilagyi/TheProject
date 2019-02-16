@@ -1,31 +1,33 @@
-package com.fasttrackit.domain;
-
-
-
-public class OrderedProduct
-{
-
-
-
-    private Product product;
-    private int quantity;
-
-
-
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-}
+//package com.fasttrackit.domain;
+//
+//
+//import javax.persistence.Entity;
+//
+//@Entity
+//public class OrderedProduct
+//{
+//
+//
+//
+//    private Product product;
+//    private int quantity;
+//
+//
+//
+//
+//    public Product getProduct() {
+//        return product;
+//    }
+//
+//    public void setProduct(Product product) {
+//        this.product = product;
+//    }
+//
+//    public int getQuantity() {
+//        return quantity;
+//    }
+//
+//    public void setQuantity(int quantity) {
+//        this.quantity = quantity;
+//    }
+//}

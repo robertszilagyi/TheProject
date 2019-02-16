@@ -28,7 +28,7 @@ public class StoreController
 @RequestMapping(path = "/store", method = RequestMethod.POST)
 public void saveStore(@RequestBody StoreDTO store)
 {
-//    storeService.saveStore(store);
+    storeService.saveStore(store);
 
 }
 
