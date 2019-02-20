@@ -26,7 +26,7 @@ public class Cart {
     @JoinColumn(name = "cart_Id")
     private List<Product> products = new ArrayList<>();
 
-    private int totalPrice;
+    private double totalPrice;
 
     public long getId() {
         return id;
@@ -46,11 +46,18 @@ public class Cart {
 
 
 
-    public int getTotalPrice() {
+    public double getTotalPrice()
+    {
+        double totalPrice = 0;
+        for (Product product : products)
+        {
+            totalPrice += product.getPrice();
+        }
+
         return totalPrice;
     }
 
-    public void setTotalPrice(int totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
@@ -62,15 +69,6 @@ public class Cart {
         this.customerInformation = customerInformation;
     }
 
-    public double computeTotalPrice()
-    {
-        double total = 0;
-        for (Product product : products)
-        {
-            total += product.getPrice();
-        }
-        return total;
-    }
 
     @Override
     public String toString() {
