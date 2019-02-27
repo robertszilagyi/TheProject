@@ -41,11 +41,14 @@ private StoreRepository repository;
     @Test
     public void testService() {
         Store store = new Store();
-        store.setName("Phone's Store");
-        store.setDescription("Best deals every day !");
+        store.setName("Fruit's Store");
+        store.setDescription("Fresh fruits every day !");
         store.setAdress("Strada Plevnei, nr.15 ");
 
+
         List<Product> products = new ArrayList<>();
+
+
         Product product1 = new Product();
         product1.setProductName("iPhone Xs");
         product1.setStock(1000);
