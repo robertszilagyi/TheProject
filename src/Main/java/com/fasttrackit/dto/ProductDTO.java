@@ -12,7 +12,7 @@ public class ProductDTO implements Serializable {
 
     private String productName;
     private double price;
-    private String manufacturer;
+
     private int stock;
 
     public long getId() {
@@ -39,13 +39,6 @@ public class ProductDTO implements Serializable {
         this.price = price;
     }
 
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public void setManufacturer(String manufacturer) {
-        this.manufacturer = manufacturer;
-    }
 
     public int getStock() {
         return stock;

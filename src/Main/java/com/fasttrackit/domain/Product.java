@@ -20,7 +20,7 @@ public class Product implements Serializable {
 
     private String productName;
     private double price;
-    private String manufacturer;
+
     private int stock;
 
     public long getId() {
@@ -47,15 +47,7 @@ public class Product implements Serializable {
         this.price = price;
     }
 
-    public String getManufacturer()
-    {
-        return manufacturer;
-    }
 
-    public void setManufacturer(String manufacturer)
-    {
-        this.manufacturer = manufacturer;
-    }
 
     public int getStock()
     {
@@ -69,11 +61,10 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        final StringBuilder sb = new StringBuilder("ProductDTO{");
+        final StringBuilder sb = new StringBuilder("Product{");
         sb.append("id=").append(id);
         sb.append(", productName='").append(productName).append('\'');
         sb.append(", price=").append(price);
-        sb.append(", manufacturer='").append(manufacturer).append('\'');
         sb.append(", stock=").append(stock);
         sb.append('}');
         return sb.toString();
