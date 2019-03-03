@@ -5,11 +5,14 @@ import com.fasttrackit.dto.ProductDTO;
 import com.fasttrackit.persistance.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.transaction.Transactional;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+@Service
 public class ProductService
 {
     @Autowired
@@ -39,14 +42,12 @@ public class ProductService
 
         List<ProductDTO> list = new ArrayList<>();
 
-        while (iterator.hasNext());
+        while (iterator.hasNext())
         {
             Product product = iterator.next();
 
-            ProductDTO productDTO = new ProductDTO();
-            productDTO.setProductName(product.getProductName());
-            productDTO.setId(product.getId());
-            productDTO.setStock(product.getStock());
+            ProductDTO productDTO = convertToDto(product);
+
 
             int nrOfProducts = 0;
 
@@ -60,8 +61,9 @@ private ProductDTO convertToDto (Product product)
     ProductDTO productDTO = new ProductDTO();
     productDTO.setProductName(product.getProductName());
     productDTO.setId(product.getId());
-    productDTO.setPrice(productDTO.getPrice());
-    productDTO.setStock(productDTO.getStock());
+    productDTO.setImagePath(product.getImagePath());
+    productDTO.setPrice(product.getPrice());
+    productDTO.setStock(product.getStock());
     return productDTO;
 }
 
@@ -71,6 +73,7 @@ private Product convert (ProductDTO productDTO)
     produc1.setProductName(produc1.getProductName());
     produc1.setPrice(produc1.getPrice());
     produc1.setId(produc1.getId());
+    produc1.setImagePath(produc1.getImagePath());
     produc1.setStock(produc1.getStock());
     return produc1;
 }

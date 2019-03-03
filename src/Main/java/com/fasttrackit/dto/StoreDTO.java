@@ -2,13 +2,14 @@ package com.fasttrackit.dto;
 
 
 import com.fasttrackit.domain.Store;
-import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 
 
-public class StoreDTO extends Store implements Serializable {
+public class StoreDTO extends Store
+{
 
 
 

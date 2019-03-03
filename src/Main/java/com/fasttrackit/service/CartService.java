@@ -8,8 +8,8 @@ import com.fasttrackit.dto.ProductDTO;
 import com.fasttrackit.persistance.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -73,6 +73,8 @@ public class CartService
     private CartDTO convertToDTO( Cart cart)
     {
         CartDTO cartDTO = new CartDTO();
+        cartDTO.setProducts(cart.getProducts());
+        cartDTO.setTotalPrice(cart.getTotalPrice());
         cartDTO.setCustomerInformation(cart.getCustomerInformation());
         cartDTO.setId(cart.getId());
         return cartDTO;
@@ -81,6 +83,7 @@ public class CartService
      {
          Cart cart1 = new Cart();
          cart.setCustomerInformation(cart.getCustomerInformation());
+         cart.setTotalPrice(cart.getTotalPrice());
          cart.setId(cart.getId());
          return cart1;
      }
@@ -100,6 +103,7 @@ public class CartService
      {
          Cart cart = cartRepository.findOne(id);
          cart.setCustomerInformation(dto.getCustomerInformation());
+         cart.setTotalPrice(dto.getTotalPrice());
          Cart save = cartRepository.save(cart);
 
          return convertToDTO(save);

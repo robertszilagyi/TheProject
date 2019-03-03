@@ -5,7 +5,6 @@ import com.fasttrackit.dto.CustomerInformationDTO;
 import com.fasttrackit.persistance.CustomerInformationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import javax.transaction.Transactional;
 
 @Service
@@ -32,6 +31,10 @@ public class CustomerInformationService
         {
             throw new IllegalArgumentException("Phone number cannot be null");
         }
+        if (customerInformation.getPassword()== null)
+        {
+            throw new IllegalArgumentException("Password cannot be null");
+        }
         try {
             customerInformationRepository.save(customerInformation);
         }
@@ -49,6 +52,8 @@ public class CustomerInformationService
         customerInformationDTO.setEmail(customerInformation.getEmail());
         customerInformationDTO.setPhoneNumber(customerInformation.getPhoneNumber());
         customerInformationDTO.setUsername(customerInformation.getUsername());
+        customerInformationDTO.setPassword(customerInformation.getPassword());
+        customerInformationDTO.setId(customerInformation.getId());
         return customerInformationDTO;
     }
     private CustomerInformation convert(CustomerInformationDTO customerInformationDTO)
@@ -59,6 +64,8 @@ public class CustomerInformationService
         customerInformationDTO.setPhoneNumber(customerInformationDTO.getPhoneNumber());
         customerInformationDTO.setEmail(customerInformationDTO.getEmail());
         customerInformationDTO.setUsername(customerInformationDTO.getUsername());
+        customerInformation1.setPassword(customerInformationDTO.getPassword());
+        customerInformationDTO.setId(customerInformationDTO.getId());
         return customerInformation1;
     }
 
@@ -78,6 +85,7 @@ public class CustomerInformationService
         customerInformation.setName(dto.getName());
         customerInformation.setPhoneNumber(dto.getPhoneNumber());
         customerInformation.setEmail(dto.getEmail());
+        customerInformation.setPassword(dto.getPassword());
         customerInformation.setUsername(dto.getUsername());
 
         CustomerInformation save = customerInformationRepository.save(customerInformation);

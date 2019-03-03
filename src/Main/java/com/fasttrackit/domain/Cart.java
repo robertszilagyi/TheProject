@@ -1,7 +1,7 @@
 package com.fasttrackit.domain;
 
 
-import javax.jws.soap.SOAPBinding;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,10 +10,10 @@ import java.util.List;
 public class Cart {
 
     @Id
-    @GeneratedValue(generator = "store_generator")
+    @GeneratedValue(generator = "cart_generator")
     @SequenceGenerator(
-            name = "store_generator",
-            sequenceName = "store_sequence",
+            name = "cart_generator",
+            sequenceName = "cart_sequence",
             initialValue = 1
     )
     private long id;

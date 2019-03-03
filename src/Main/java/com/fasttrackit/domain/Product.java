@@ -5,11 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-import java.io.Serializable;
+
 @Entity
 
-public class Product implements Serializable {
-@Id
+public class Product  {
+    @Id
     @GeneratedValue(generator = "store_generator")
     @SequenceGenerator(
             name = "store_generator",
@@ -20,8 +20,8 @@ public class Product implements Serializable {
 
     private String productName;
     private double price;
-
     private int stock;
+    private String imagePath;
 
     public long getId() {
         return id;
@@ -37,6 +37,14 @@ public class Product implements Serializable {
 
     public void setProductName(String productName) {
         this.productName = productName;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public double getPrice() {
@@ -66,6 +74,7 @@ public class Product implements Serializable {
         sb.append(", productName='").append(productName).append('\'');
         sb.append(", price=").append(price);
         sb.append(", stock=").append(stock);
+        sb.append(", imagePath='").append(imagePath).append('\'');
         sb.append('}');
         return sb.toString();
     }

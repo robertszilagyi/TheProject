@@ -1,13 +1,12 @@
 package com.fasttrackit.domain;
 
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "stores")
-public class Store implements Serializable {
+public class Store  {
 
 
 @Id
@@ -19,15 +18,17 @@ public class Store implements Serializable {
     )
 
     private long id;
+
+
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Product> products = new ArrayList<>();
+
     private String name;
     private String adress;
     private String description;
 
 
-    @OneToMany( cascade = CascadeType.ALL)
-
-
-    private List<Product> products = new ArrayList<>();
 
     public long getId()
     {

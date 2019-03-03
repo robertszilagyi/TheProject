@@ -13,10 +13,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-@Service
 
+@Service
 public class StoreService
 {
+
     @Autowired
     private StoreRepository storeRepository;
 
@@ -58,10 +59,10 @@ public class StoreService
             storeDTO.setId(store.getId());
 
             List<Product> products = store.getProducts();
-            int numberOfPRoducts = 0;
-            while (numberOfPRoducts < 5 && products.size() >= 5)
+            int numberOfProducts = 0;
+            while (numberOfProducts < 5 && products.size() >= 5)
             {
-                Product product = products.get(numberOfPRoducts);
+                Product product = products.get(numberOfProducts);
                 ProductDTO productDTO = new ProductDTO();
 
                 productDTO.setId(product.getId());
@@ -69,7 +70,7 @@ public class StoreService
 
 
                 storeDTO.getFirstElements().add(productDTO);
-                numberOfPRoducts++;
+                numberOfProducts++;
 
             }
             list.add(storeDTO);
@@ -87,7 +88,7 @@ public class StoreService
     return storeDTO;
 }
 
-    private Store convert(Store store)
+    private Store convert(StoreDTO store)
     {
         Store store1 = new Store();
         store.setName(store.getName());

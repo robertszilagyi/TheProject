@@ -9,10 +9,11 @@ import java.util.List;
 
 public class CartDTO
 {
-    private List<Product> products = new ArrayList<>();
+
     private long id;
     private double totalPrice;
     private CustomerInformation customerInformation;
+    private List<Product> products = new ArrayList<>();
 
     public List<Product> getProducts() {
         return products;

@@ -2,17 +2,17 @@ package com.fasttrackit.dto;
 
 
 
-import java.io.Serializable;
 
 
-public class ProductDTO implements Serializable {
+
+public class ProductDTO  {
 
 
     private long id;
 
     private String productName;
     private double price;
-
+    private String imagePath;
     private int stock;
 
     public long getId() {
@@ -33,6 +33,14 @@ public class ProductDTO implements Serializable {
 
     public double getPrice() {
         return price;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public void setPrice(double price) {
