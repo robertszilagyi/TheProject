@@ -85,12 +85,12 @@ public class CartService
     private CustomerInformationDTO convertToCustomerInformationDTO(Cart cart) {
         CustomerInformationDTO customerInformationDTO = new CustomerInformationDTO();
         customerInformationDTO.setId(cart.getCustomerInformation().getId());
-        customerInformationDTO.setUsername(cart.getCustomerInformation().getUsername());
+      //  customerInformationDTO.setUsername(cart.getCustomerInformation().getUsername());
         customerInformationDTO.setPassword(cart.getCustomerInformation().getPassword());
         customerInformationDTO.setEmail(cart.getCustomerInformation().getEmail());
-        customerInformationDTO.setPhoneNumber(cart.getCustomerInformation().getPhoneNumber());
-        customerInformationDTO.setName(cart.getCustomerInformation().getName());
-        customerInformationDTO.setFirstName(cart.getCustomerInformation().getFirstName());
+      //  customerInformationDTO.setPhoneNumber(cart.getCustomerInformation().getPhoneNumber());
+     //   customerInformationDTO.setName(cart.getCustomerInformation().getName());
+     //   customerInformationDTO.setFirstName(cart.getCustomerInformation().getFirstName());
         return customerInformationDTO;
     }
 
@@ -121,13 +121,13 @@ public class CartService
 
     private CustomerInformation convertCustomerInformationFromDTO(CartDTO cartDTO) {
         CustomerInformation customerInformation = new CustomerInformation();
-        customerInformation.setUsername(cartDTO.getCustomerInformation().getUsername());
+      //  customerInformation.setUsername(cartDTO.getCustomerInformation().getUsername());
         customerInformation.setPassword(cartDTO.getCustomerInformation().getPassword());
         customerInformation.setEmail(cartDTO.getCustomerInformation().getEmail());
-        customerInformation.setPhoneNumber(cartDTO.getCustomerInformation().getPhoneNumber());
+      //  customerInformation.setPhoneNumber(cartDTO.getCustomerInformation().getPhoneNumber());
         customerInformation.setId(cartDTO.getCustomerInformation().getId());
-        customerInformation.setFirstName(cartDTO.getCustomerInformation().getFirstName());
-        customerInformation.setName(cartDTO.getCustomerInformation().getName());
+      //  customerInformation.setFirstName(cartDTO.getCustomerInformation().getFirstName());
+     //   customerInformation.setName(cartDTO.getCustomerInformation().getName());
         return customerInformation;
     }
 
