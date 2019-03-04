@@ -3,6 +3,8 @@ package com.fasttrackit.web;
 import com.fasttrackit.dto.CustomerInformationDTO;
 import com.fasttrackit.service.CustomerInformationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -18,9 +20,10 @@ public class CustomerInformationController
     }
 
     @RequestMapping(path = "/customerInformation", method = RequestMethod.POST)
-    public void saveCustomerInformation (@RequestBody CustomerInformationDTO customerInformationDTO)
+    public ResponseEntity saveCustomerInformation (@RequestBody CustomerInformationDTO customerInformationDTO)
     {
-     //   customerInformationService.saveCustomerInformation(customerInformationDTO)
+        customerInformationService.saveCustomerInformation(customerInformationDTO);
+        return new ResponseEntity(HttpStatus.OK);
     }
 
     @RequestMapping (path = "/customerInformation/(id)", method = RequestMethod.PUT)
