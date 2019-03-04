@@ -2,8 +2,10 @@ package com.fasttrackit.service;
 
 
 import com.fasttrackit.domain.Cart;
+import com.fasttrackit.domain.CustomerInformation;
 import com.fasttrackit.domain.Product;
 import com.fasttrackit.dto.CartDTO;
+import com.fasttrackit.dto.CustomerInformationDTO;
 import com.fasttrackit.dto.ProductDTO;
 import com.fasttrackit.persistance.CartRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +23,17 @@ public class CartService
     @Autowired
     private CartRepository cartRepository;
 
-    @Transactional
-    public void saveCart(Cart cart)
+//    @Transactional
+    public void saveCart(CartDTO cartDTO)
     {
-        if (cart.getCustomerInformation() == null)
+        if (cartDTO.getCustomerInformation() == null)
         {
             throw new IllegalArgumentException("User cannot be null");
         }
 
         try {
+            Cart cart = converFromDTO(cartDTO);
+
             cartRepository.save(cart);
 
         }
@@ -49,23 +53,9 @@ public class CartService
         {
             Cart cart = iterator.next();
 
-            CartDTO cartDTO = new CartDTO();
-            cartDTO.setCustomerInformation(cart.getCustomerInformation());
-            cartDTO.setId(cart.getId());
+            CartDTO cartDTO = convertToDTO(cart);
 
-            List<Product> products = cart.getProducts();
 
-            int numberOfProducts = 0;
-            while (numberOfProducts < 5 && products.size() >= 5);
-            {
-                Product product = products.get(numberOfProducts);
-                ProductDTO productDTO = new ProductDTO();
-
-                productDTO.setId(product.getId());
-                productDTO.setProductName(product.getProductName());
-
-                numberOfProducts++;
-            }
             list.add(cartDTO);
         }
         return list;
@@ -73,22 +63,75 @@ public class CartService
     private CartDTO convertToDTO( Cart cart)
     {
         CartDTO cartDTO = new CartDTO();
-        cartDTO.setProducts(cart.getProducts());
-        cartDTO.setTotalPrice(cart.getTotalPrice());
-        cartDTO.setCustomerInformation(cart.getCustomerInformation());
+        CustomerInformationDTO customerInformationDTO = convertToCustomerInformationDTO(cart);
+
+        List<ProductDTO> productDTOS =  new ArrayList<>();
+        for (Product product: cart.getProducts())
+        {
+            ProductDTO productDTO = new ProductDTO();
+            productDTO.setProductName(product.getProductName());
+            productDTO.setImagePath(product.getImagePath());
+            productDTO.setPrice(product.getPrice());
+            productDTO.setId(product.getId());
+
+            productDTOS.add(productDTO);
+        }
+        cartDTO.setProducts(productDTOS);
+        cartDTO.setCustomerInformation(customerInformationDTO);
         cartDTO.setId(cart.getId());
         return cartDTO;
     }
-     private Cart cart(Cart cart)
+
+    private CustomerInformationDTO convertToCustomerInformationDTO(Cart cart) {
+        CustomerInformationDTO customerInformationDTO = new CustomerInformationDTO();
+        customerInformationDTO.setId(cart.getCustomerInformation().getId());
+        customerInformationDTO.setUsername(cart.getCustomerInformation().getUsername());
+        customerInformationDTO.setPassword(cart.getCustomerInformation().getPassword());
+        customerInformationDTO.setEmail(cart.getCustomerInformation().getEmail());
+        customerInformationDTO.setPhoneNumber(cart.getCustomerInformation().getPhoneNumber());
+        customerInformationDTO.setName(cart.getCustomerInformation().getName());
+        customerInformationDTO.setFirstName(cart.getCustomerInformation().getFirstName());
+        return customerInformationDTO;
+    }
+
+    private Cart converFromDTO(CartDTO cartDTO)
      {
-         Cart cart1 = new Cart();
-         cart.setCustomerInformation(cart.getCustomerInformation());
-         cart.setTotalPrice(cart.getTotalPrice());
-         cart.setId(cart.getId());
-         return cart1;
+         Cart cart = new Cart();
+         CustomerInformation customerInformation = convertCustomerInformationFromDTO(cartDTO);
+         cart.setCustomerInformation(customerInformation);
+         cart.setId(cartDTO.getId());
+
+         List<Product> products = new ArrayList<>();
+         for (ProductDTO productDTO: cartDTO.getProducts())
+         {
+             Product product = new Product();
+             product.setImagePath(productDTO.getImagePath());
+             product.setProductName(productDTO.getProductName());
+             product.setPrice(productDTO.getPrice());
+             product.setId(productDTO.getId());
+
+             products.add(product);
+         }
+
+         cart.setProducts(products);
+
+
+         return cart;
      }
 
-     public CartDTO getCartById ( long id)
+    private CustomerInformation convertCustomerInformationFromDTO(CartDTO cartDTO) {
+        CustomerInformation customerInformation = new CustomerInformation();
+        customerInformation.setUsername(cartDTO.getCustomerInformation().getUsername());
+        customerInformation.setPassword(cartDTO.getCustomerInformation().getPassword());
+        customerInformation.setEmail(cartDTO.getCustomerInformation().getEmail());
+        customerInformation.setPhoneNumber(cartDTO.getCustomerInformation().getPhoneNumber());
+        customerInformation.setId(cartDTO.getCustomerInformation().getId());
+        customerInformation.setFirstName(cartDTO.getCustomerInformation().getFirstName());
+        customerInformation.setName(cartDTO.getCustomerInformation().getName());
+        return customerInformation;
+    }
+
+    public CartDTO getCartById ( long id)
      {
          Cart one = cartRepository.findOne(id);
          if (one == null)
@@ -102,8 +145,9 @@ public class CartService
      public CartDTO updateCart(long id, CartDTO dto)
      {
          Cart cart = cartRepository.findOne(id);
-         cart.setCustomerInformation(dto.getCustomerInformation());
-         cart.setTotalPrice(dto.getTotalPrice());
+         CustomerInformation customerInformation = convertCustomerInformationFromDTO(dto);
+
+         cart.setCustomerInformation(customerInformation);
          Cart save = cartRepository.save(cart);
 
          return convertToDTO(save);

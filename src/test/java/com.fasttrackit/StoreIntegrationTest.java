@@ -169,12 +169,7 @@ public class StoreIntegrationTest
 
 
         CustomerInformation customerInformation = new CustomerInformation();
-        customerInformation.setUsername("Robert1");
-        customerInformation.setEmail("robertszilagyi97@gmail.com" );
-        customerInformation.setPhoneNumber("0755848820");
-        customerInformation.setFirstName("Robert");
-        customerInformation.setName("Szilagyi");
-        customerInformation.setPassword("123456");
+
         customerInformationRepository.save(customerInformation);
 
 

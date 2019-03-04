@@ -63,7 +63,6 @@ private ProductDTO convertToDto (Product product)
     productDTO.setId(product.getId());
     productDTO.setImagePath(product.getImagePath());
     productDTO.setPrice(product.getPrice());
-    productDTO.setStock(product.getStock());
     return productDTO;
 }
 
@@ -74,7 +73,6 @@ private Product convert (ProductDTO productDTO)
     produc1.setPrice(produc1.getPrice());
     produc1.setId(produc1.getId());
     produc1.setImagePath(produc1.getImagePath());
-    produc1.setStock(produc1.getStock());
     return produc1;
 }
 
@@ -82,7 +80,6 @@ public  ProductDTO updateProduct( long id, ProductDTO dto)
 {
     Product product1 = productRepository.findOne(id);
     product1.setPrice(dto.getPrice());
-    product1.setStock(dto.getStock());
     product1.setProductName(dto.getProductName());
 
     Product save = productRepository.save(product1);

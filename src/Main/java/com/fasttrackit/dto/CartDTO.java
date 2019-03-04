@@ -1,9 +1,6 @@
 package com.fasttrackit.dto;
 
 
-import com.fasttrackit.domain.CustomerInformation;
-import com.fasttrackit.domain.Product;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,15 +8,14 @@ public class CartDTO
 {
 
     private long id;
-    private double totalPrice;
-    private CustomerInformation customerInformation;
-    private List<Product> products = new ArrayList<>();
+    private CustomerInformationDTO customerInformation;
+    private List<ProductDTO> products = new ArrayList<>();
 
-    public List<Product> getProducts() {
+    public List<ProductDTO> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<ProductDTO> products) {
         this.products = products;
     }
 
@@ -34,7 +30,7 @@ public class CartDTO
     public double getTotalPrice() {
 
         double totalPrice = 0;
-        for (Product product : products)
+        for (ProductDTO product : products)
         {
             totalPrice += product.getPrice();
         }
@@ -42,15 +38,11 @@ public class CartDTO
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
-    public CustomerInformation getCustomerInformation() {
+    public CustomerInformationDTO getCustomerInformation() {
         return customerInformation;
     }
 
-    public void setCustomerInformation(CustomerInformation customerInformation) {
+    public void setCustomerInformation(CustomerInformationDTO customerInformation) {
         this.customerInformation = customerInformation;
     }
 

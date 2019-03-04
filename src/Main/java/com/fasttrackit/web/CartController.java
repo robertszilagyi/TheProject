@@ -4,7 +4,7 @@ import com.fasttrackit.dto.CartDTO;
 import com.fasttrackit.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+@RestController
 public class CartController
 {
     @Autowired
@@ -18,7 +18,7 @@ public class CartController
     @RequestMapping(path = "/cart", method = RequestMethod.POST)
     public void  saveCart(@RequestBody CartDTO cartDTO)
     {
-      //   cartService.saveCart(cartDTO);
+        cartService.saveCart(cartDTO);
     }
 
     @RequestMapping(path = "/cart/id", method = RequestMethod.PUT)
