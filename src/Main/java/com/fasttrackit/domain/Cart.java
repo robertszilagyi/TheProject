@@ -18,15 +18,14 @@ public class Cart {
     )
     private long id;
 
-    @OneToOne(targetEntity = CustomerInformation.class, fetch = FetchType.LAZY)
+    @OneToOne(targetEntity = CustomerInformation.class, fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "customerInformation_Id")
     private CustomerInformation customerInformation;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cart_Id")
+    @OneToMany(mappedBy = "cart",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
 
-    private double totalPrice;
+
 
     public long getId() {
         return id;
@@ -57,9 +56,7 @@ public class Cart {
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
+
 
     public CustomerInformation getCustomerInformation() {
         return customerInformation;
@@ -75,7 +72,6 @@ public class Cart {
         final StringBuilder sb = new StringBuilder("Cart{");
         sb.append("products=").append(products);
         sb.append(", id=").append(id);
-        sb.append(", totalPrice=").append(totalPrice);
         sb.append(", customerInformation=").append(customerInformation);
         sb.append('}');
         return sb.toString();

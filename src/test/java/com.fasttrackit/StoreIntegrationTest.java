@@ -51,7 +51,6 @@ public class StoreIntegrationTest
 
         Product product1 = new Product();
         product1.setProductName("Oranges");
-        product1.setStock(1000);
         product1.setImagePath("img/Oranges.jpg");
         product1.setPrice(2);
         products.add(product1);
@@ -60,7 +59,6 @@ public class StoreIntegrationTest
 
         Product product2  = new Product();
         product2.setProductName("Apples");
-        product2.setStock(1000);
         product2.setImagePath("img/Apples.jpg");
         product2.setPrice(1.5);
         products.add(product2);
@@ -70,7 +68,6 @@ public class StoreIntegrationTest
 
         Product product3  = new Product();
         product3.setProductName("Bananas");
-        product3.setStock(1000);
         product3.setPrice(3);
         product3.setImagePath("img/Bananas.jpg");
         products.add(product3);
@@ -80,7 +77,6 @@ public class StoreIntegrationTest
 
         Product product4  = new Product();
         product4.setProductName("Blackberry");
-        product4.setStock(3000);
         product4.setImagePath("img/Blackberry.jpg");
         product4.setPrice(4);
         products.add(product4);
@@ -90,7 +86,6 @@ public class StoreIntegrationTest
 
         Product product5  = new Product();
         product5.setProductName("Blue Grapes");
-        product5.setStock(10000);
         product5.setImagePath("img/BlueGrapes.jpg");
         product5.setPrice(2.5);
         products.add(product5);
@@ -100,7 +95,6 @@ public class StoreIntegrationTest
 
         Product product6  = new Product();
         product6.setProductName("White Grapes");
-        product6.setStock(10000);
         product6.setImagePath("img/WhiteGrapes.jpg");
         product6.setPrice(3);
         products.add(product6);
@@ -111,7 +105,6 @@ public class StoreIntegrationTest
 
         Product product7  = new Product();
         product7.setProductName("Grapefrut");
-        product7.setStock(1000);
         product7.setImagePath("img/Grepfrut.jpg");
         product7.setPrice(4);
         products.add(product7);
@@ -120,7 +113,6 @@ public class StoreIntegrationTest
 
         Product product8  = new Product();
         product8.setProductName("Kiwi");
-        product8.setStock(1000);
         product8.setImagePath("img/kiwi2.jpg");
         product8.setPrice(2.5);
         products.add(product8);
@@ -129,7 +121,6 @@ public class StoreIntegrationTest
 
         Product product9  = new Product();
         product9.setProductName("Mango");
-        product9.setStock(2000);
         product9.setImagePath("img/Mango.jpg");
         product9.setPrice(4.5);
         products.add(product9);
@@ -138,7 +129,6 @@ public class StoreIntegrationTest
 
         Product product10  = new Product();
         product10.setProductName("Pineapple");
-        product10.setStock(1000);
         product10.setImagePath("img/Pineapple.jpg");
         product10.setPrice(3.75);
         products.add(product10);
@@ -147,7 +137,6 @@ public class StoreIntegrationTest
 
         Product product11  = new Product();
         product11.setProductName("Pom fruit");
-        product11.setStock(10000);
         product11.setImagePath("img/PomFruit.jpg");
         product11.setPrice(2.45);
         products.add(product11);
@@ -155,7 +144,6 @@ public class StoreIntegrationTest
 
         Product product12  = new Product();
         product12.setProductName("Strawberries");
-        product12.setStock(10000);
         product12.setImagePath("img/Strawberry.jpg");
         product12.setPrice(2.45);
         products.add(product12);
@@ -164,7 +152,6 @@ public class StoreIntegrationTest
 
         Product product13  = new Product();
         product13.setProductName("Watermelon");
-        product13.setStock(1000);
         product13.setImagePath("img/Watermelon.jpg");
         product13.setPrice(1);
         products.add(product13);
@@ -172,7 +159,6 @@ public class StoreIntegrationTest
 
         Product product14  = new Product();
         product14.setProductName("Avocado");
-        product14.setStock(1000);
         product14.setImagePath("img/Avocado.jpg");
         product14.setPrice(2.75);
         products.add(product14);
@@ -188,13 +174,11 @@ public class StoreIntegrationTest
         customerInformation.setPhoneNumber("0755848820");
         customerInformation.setFirstName("Robert");
         customerInformation.setName("Szilagyi");
+        customerInformation.setPassword("123456");
         customerInformationRepository.save(customerInformation);
 
 
-        Cart cart = new Cart();
-        cart.setProducts(products);
-        cart.setTotalPrice(cart.getTotalPrice());
-        cartRepository.save(cart);
+
     }
 
 

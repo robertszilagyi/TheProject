@@ -13,7 +13,7 @@ public class ProductDTO  {
     private String productName;
     private double price;
     private String imagePath;
-    private int stock;
+
 
     public long getId() {
         return id;
@@ -48,13 +48,7 @@ public class ProductDTO  {
     }
 
 
-    public int getStock() {
-        return stock;
-    }
 
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
 
 
 }

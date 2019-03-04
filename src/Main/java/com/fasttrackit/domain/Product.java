@@ -1,10 +1,7 @@
 package com.fasttrackit.domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 
 @Entity
 
@@ -16,12 +13,24 @@ public class Product  {
             sequenceName = "store_sequence",
             initialValue = 1
     )
+
     private long id;
+
+    @ManyToOne
+    @JoinColumn(name = "cart_id")
+    private Cart cart;
 
     private String productName;
     private double price;
-    private int stock;
     private String imagePath;
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
+    }
 
     public long getId() {
         return id;
@@ -57,15 +66,7 @@ public class Product  {
 
 
 
-    public int getStock()
-    {
-        return stock;
-    }
 
-    public void setStock(int stock)
-    {
-        this.stock = stock;
-    }
 
     @Override
     public String toString() {
@@ -73,7 +74,6 @@ public class Product  {
         sb.append("id=").append(id);
         sb.append(", productName='").append(productName).append('\'');
         sb.append(", price=").append(price);
-        sb.append(", stock=").append(stock);
         sb.append(", imagePath='").append(imagePath).append('\'');
         sb.append('}');
         return sb.toString();

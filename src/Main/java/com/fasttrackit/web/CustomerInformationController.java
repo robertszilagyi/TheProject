@@ -20,12 +20,18 @@ public class CustomerInformationController
     @RequestMapping(path = "/customerInformation", method = RequestMethod.POST)
     public void saveCustomerInformation (@RequestBody CustomerInformationDTO customerInformationDTO)
     {
-
+     //   customerInformationService.saveCustomerInformation(customerInformationDTO)
     }
 
-    @RequestMapping (path = "/customerInformation/ (id)", method = RequestMethod.PUT)
+    @RequestMapping (path = "/customerInformation/(id)", method = RequestMethod.PUT)
     public CustomerInformationDTO updateCustomerInformation (@PathVariable long id, @RequestBody CustomerInformationDTO dto)
     {
         return customerInformationService.updateCustomerInformation(id, dto);
+    }
+
+    @RequestMapping(path = "/customerInformation" , method = RequestMethod.GET)
+    public CustomerInformationDTO getCustomerInformationByEmailAndPassword (@RequestParam("email") String email, @RequestParam("password") String password)
+    {
+        return customerInformationService.getCustomerInformationByEmailAndPassword(email, password);
     }
 }
